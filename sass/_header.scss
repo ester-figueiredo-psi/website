@@ -1,0 +1,223 @@
+@import 'grid';
+
+header {
+    min-height: 100svh;
+    position: relative;
+    overflow-x: clip;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include device('m') {
+        flex-direction: column;
+    }
+
+    @include device('s') {
+        flex-direction: column;
+        padding: 5rem 0;
+    }
+
+    .background-img {
+        position: absolute;
+        object-fit: cover;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        animation: fade-out-bg linear forwards;
+        animation-timeline: view();
+        animation-range: exit;
+        scale: 1;
+        transform-origin: top;
+    }
+
+
+    .header-logo {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 100;
+        width: 22.5rem;
+
+        @include device('s') {
+            width: 10rem;
+        }
+    }
+
+
+    .right-home-content {
+        position: relative;
+        color: #614732;
+        min-height: max-content;
+        display: grid;
+        place-content: center;
+
+        animation: fade-out linear;
+        animation-timeline: view();
+        animation-range: exit -300px;
+
+        .content {
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 6rem;
+            margin-right: 4rem;
+
+            .home-tittle {
+                text-align: center;
+                font-size: 3rem;
+                font-weight: bold;
+                margin-top: 1.5rem;
+                color: #594834;
+                background-image: linear-gradient(90deg, #594834, #594834);
+                background-clip: text;
+                background-repeat: no-repeat;
+            }
+
+            .home-sub-tittle {
+                text-align: justify;
+                font-size: 1.5rem;
+                margin-top: 1rem;
+                line-height: 2rem;
+                color: #594834;
+                background-image: linear-gradient(90deg, #594834, #594834);
+                background-clip: text;
+                background-repeat: no-repeat;
+            }
+
+            .cta-whatsapp {
+                width: 25rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #614732;
+                color: #F2d8c2;
+                padding: 1rem;
+                border-radius: .3rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+
+
+                img {
+                    width: 2rem;
+
+                }
+            }
+        }
+
+    }
+
+
+    .left-home-content {
+        padding-right: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: max-content;
+
+        img {
+            width: 70%;
+            animation: fade-out linear;
+            animation-timeline: view();
+            animation-range: exit -300px;
+            object-fit: cover;
+
+        }
+
+    }
+
+    @include device('m') {
+        .right-home-content {
+            width: 100%;
+
+            .content {
+                margin: 0;
+            }
+        }
+
+        .left-home-content {
+            width: 100%;
+
+            img {
+                width: 60%;
+            }
+        }
+    }
+
+    @include device('s') {
+        .right-home-content {
+            width: 100%;
+
+            .content {
+                margin: 0;
+
+                .home-tittle {
+                    font-size: 2rem;
+                }
+
+                .home-sub-tittle {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        .left-home-content {
+            width: 100%;
+            padding-top: 5rem;
+
+            img {
+                width: 65%;
+            }
+        }
+
+    }
+}
+
+/*animation*/
+
+@keyframes fade-out-image {
+    25% {
+        opacity: 1;
+    }
+
+    85%,
+    100% {
+        opacity: 0;
+        scale: 1.5;
+    }
+}
+
+@keyframes fade-out-bg {
+    25% {
+        opacity: 1;
+    }
+
+    85%,
+    100% {
+        opacity: 1;
+        scale: 1.5;
+    }
+}
+
+@keyframes fade-out {
+    25% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

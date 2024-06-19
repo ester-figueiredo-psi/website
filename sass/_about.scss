@@ -1,0 +1,145 @@
+@import "animation";
+@import "grid";
+
+main {
+  .about-section {
+    min-height: 100svh;
+    background-color: #614732;
+    color: #f2d8c2;
+    background-image: url("../assets/backgrounds/about-section-bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .about-content {
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+
+      @include device("s") {
+        display: flex;
+        flex-direction: column-reverse;
+
+        .about-right {
+          max-height: max-content;
+          width: 100%;
+          padding-top: 1rem;
+
+          img {
+            object-fit: contain;
+            width: 100%;
+
+            background-color: #f2d8c2;
+            border-radius: 1rem;
+          }
+        }
+
+        .about-left {
+          max-height: max-content;
+          width: 100%;
+          padding: 0;
+
+          h1 span {
+            font-size: 2.5rem !important;
+          }
+        }
+      }
+
+      @include device("m") {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        padding: 1rem 0rem;
+
+        .about-right {
+          max-height: max-content;
+          width: 100%;
+          padding: 0;
+
+          img {
+            width: 70%;
+            object-fit: contain;
+            background-color: #f2d8c2;
+            border-radius: 1rem;
+          }
+        }
+
+        .about-left {
+          max-height: max-content;
+          width: 100%;
+          padding: 0;
+
+          h1 {
+            font-size: 3.8rem;
+          }
+        }
+      }
+
+      .about-left {
+        padding: 5rem 0;
+        min-height: max-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+        gap: 2rem;
+
+        h1 span {
+          font-size: 3rem;
+          animation-range-start: cover 15vh;
+          animation-range-end: cover 25vh;
+        }
+
+        p span {
+          font-size: 1.6rem;
+          animation-range-start: cover 25vh;
+          animation-range-end: cover 45vh;
+        }
+
+        a {
+          width: 25rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          background-color: #f2d8c2;
+          color: #614732;
+          padding: 1rem;
+          border-radius: 0.3rem;
+          margin-top: 1.5rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          cursor: pointer;
+
+          img {
+            width: 2rem;
+          }
+        }
+
+        @include device("s") {
+          h1 span {
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .about-right {
+        min-height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+          scale: 0.8;
+          opacity: 0;
+          animation: fade-in linear forwards;
+          animation-timeline: view();
+          animation-range: entry 200px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import "./grid";
+.faq-section {
+  min-height: 100svh;
+  background-color: #614732;
+  color: #f2d8c2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0rem;
+  gap: 2rem;
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+
+    @include device("s") {
+      font-size: 2.1rem;
+    }
+  }
+
+  .faq-content {
+    padding: 2rem 1rem;
+    color: #614732;
+    overflow-y: scroll;
+    width: 70%;
+    max-height: 80vh;
+    background-color: #f2d8c2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @include device("s") {
+      width: 90%;
+      padding: 3rem;
+    }
+
+    .faq-card {
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+        text-align: justify;
+
+        a {
+          font-weight: bolder;
+          color: #614732;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .faq-active {
+        display: block;
+      }
+    }
+  }
+}
